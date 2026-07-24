@@ -1,0 +1,32 @@
+{
+  "T_obs_yr": 16.03,
+  "cache": "data/autocorrelation_finite_distance_plot_cache.npz",
+  "closest_distance_err_ly": 78.27744,
+  "closest_distance_ly": 290.27884,
+  "closest_pulsar": "J1630+3734",
+  "fL_grid_max": 50000.0,
+  "fL_grid_min": 0.001,
+  "furthest_distance_err_ly": 4240.028,
+  "furthest_distance_ly": 21167.524400000002,
+  "furthest_pulsar": "J1903+0327",
+  "high_reference_fL": 18486.920873362447,
+  "high_reference_fL_err": 3703.081222707424,
+  "low_reference_fL": 18.108474111041797,
+  "low_reference_fL_err": 4.8831840299438545,
+  "median_distance_ly": 4500.9528,
+  "n_gwb_freqs": 14,
+  "one_minus_v_grid_count": 901,
+  "one_minus_v_grid_max": 0.999,
+  "one_minus_v_grid_min": 1e-08,
+  "one_minus_v_transition_high": 5.409229621580121e-05,
+  "one_minus_v_transition_low": 0.055222764428850546,
+  "outputs": [
+    "figs/autocorrelation_finite_distance_fL.pdf",
+    "figs/autocorrelation_finite_distance_vg_scan.pdf"
+  ],
+  "prefactor_note": "The vector curve is (1-v_g^2) Gamma_V and the scalar curve is (1-v_g^2)^2 Gamma_S.",
+  "v_grid_count": 720,
+  "v_grid_max": 0.99999999,
+  "v_grid_min": 1e-06,
+  "vg_scan_method": "Exact finite-fL antiderivatives for the autocorrelation; grids approach but do not include v_g=0 or v_g=1"
+}
