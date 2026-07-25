@@ -2,6 +2,8 @@
 
 This repository is for the analytical and numerical results in the paper titled "Suppression of extra polarizations in massive-gravity overlap reduction functions near the massless limit". The authors of this paper are Chris Choi, Tina Kahniashvili, and Barnabas Poczos.
 
+[![DOI](https://zenodo.org/badge/1311208200.svg)](https://doi.org/10.5281/zenodo.21542567)
+
 All code needed to regenerate the eight figures in the paper is contained in `reproduce_all_figures.ipynb`.
 
 ```text
