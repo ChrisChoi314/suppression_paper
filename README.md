@@ -1,14 +1,12 @@
 # Massive-graviton suppression paper: figure and analysis release
 
-This repository is for the analytical and numerical results in the massive-graviton suppression paper.
+This repository is for the analytical and numerical results in the paper titled "Suppression of extra polarizations in massive-gravity overlap reduction functions near the massless limit". The authors of this paper are Chris Choi, Tina Kahniashvili, and Barnabas Poczos.
 
 All code needed to regenerate the eight figures in the paper is contained in `reproduce_all_figures.ipynb`.
 
 ```text
 suppression_paper_code/
 |-- README.md
-|-- CONTENTS.md
-|-- SHA256SUMS
 |-- reproduce_all_figures.ipynb
 |-- data/
 `-- figs/
@@ -56,6 +54,3 @@ Start Jupyter in this directory, open `reproduce_all_figures.ipynb`, and run all
   250 separation angles, 120 mass-ratio samples, isotropic `sin(xi) dxi`
   weighting, `f = 1.97679899027005 nHz`, `L_a = 500 ly`, and
   `L_b = 10000 ly`.
-
-`CONTENTS.md` lists every delivered artifact and `SHA256SUMS` records a checksum
-for every delivered file other than the checksum file itself.
