@@ -1,58 +1,66 @@
 # Massive-graviton suppression paper: figure and analysis release
 
-This repository is for the analytical and numerical results in the paper titled "Suppression of extra polarizations in massive-gravity overlap reduction functions near the massless limit". The authors of this paper are Chris Choi, Tina Kahniashvili, and Barnabas Poczos.
+This repository contains the analytical and numerical results for the paper
+"Suppression of extra polarizations in massive-gravity overlap reduction functions
+near the massless limit" by Chris Choi, Tina Kahniashvili, and Barnabas Poczos.
 
-[![DOI](https://zenodo.org/badge/1311208200.svg)](https://doi.org/10.5281/zenodo.21542567)
+[DOI](https://doi.org/10.5281/zenodo.21542567)
 
-All code needed to regenerate the eight figures in the paper is contained in `reproduce_all_figures.ipynb`.
+All code needed to regenerate the seven figures is contained in
+`reproduce_all_figures.ipynb`.
 
 ```text
 suppression_paper_code/
 |-- README.md
+|-- requirements.txt
 |-- reproduce_all_figures.ipynb
 |-- data/
 `-- figs/
 ```
 
-The first code cell imports the packages. The second code cell contains only the corrected ORFs and reusable limiting-integral routines. The remaining code cells reproduce Figures 1 through 8 in order, with each cell explicitly showing its parameter choices, data or cache handling, numerical arrays, plotting commands, PDF save, and inline display.
+The first code cell imports the packages and defines the shared ORF routines.
+The remaining cells reproduce Figures 1 through 7 in order, save the plots in
+`figs/`, and display them in the notebook.
 
 ## Reproducing the figures
 
-Start Jupyter in this directory, open `reproduce_all_figures.ipynb`, and run all cells from top to bottom. We used the following versions of packages:
+Install the packages and start Jupyter from this directory:
+
+```bash
+python -m pip install -r requirements.txt notebook
+jupyter notebook reproduce_all_figures.ipynb
+```
+
+Run all cells from top to bottom. The code was checked with:
 
 - Python 3.11.14
 - NumPy 1.26.4
 - Matplotlib 3.10.8
 - SciPy 1.11.4
-- pandas 2.3.3
 
 ## Figure map
 
 | Paper figure | Notebook section | Output |
 |---|---|---|
-| 1 | Liang--Trodden and Isi--Stein basis comparison | `figs/liang_old_vs_isi_normalized_grid.pdf` |
-| 2 | Tensor distance coherence and NANOGrav distance uncertainties | `figs/tensor_gr_distance_coherence_paper.pdf` |
-| 3 | Massive-limit finite-distance factor | `figs/re_pulsar_prod.pdf` |
-| 4 | Massive-limit angular shapes | `figs/massive_limit_angular_shapes.pdf` |
+| 1 | Tensor distance coherence | `figs/tensor_gr_distance_coherence_paper.pdf` |
+| 2 | Massive-limit angular shapes | `figs/massive_limit_angular_shapes.pdf` |
+| 3 | Cross-correlations versus group velocity | `figs/cross_correlation_vg_log_L500_L2000_xi30.pdf` |
+| 4 | Autocorrelations versus `1-v_g` | `figs/autocorrelation_finite_distance_one_minus_v_scan.pdf` |
 | 5 | Massless-limit angular shapes with pulsar terms | `figs/massless_limit_angular_shapes.pdf` |
-| 6 | Finite-distance autocorrelations versus `fL` | `figs/autocorrelation_finite_distance_fL.pdf` |
-| 7 | Finite-distance autocorrelations versus `1-v_g` | `figs/autocorrelation_finite_distance_vg_scan.pdf` |
-| 8 | Vector/scalar sector-fraction heat maps | `figs/sector_fraction_alpha_n_heatmap.pdf` |
+| 6 | Effective ORFs with scalar suppression | `figs/effective_orf_scalar_suppression_massless_panels.pdf` |
+| 7 | Angular RMS convergence toward GR | `figs/scalar_suppression_convergence_rms.pdf` |
 
-## Numerical inputs and seeds
+PNG copies are also saved.
 
-- Figure 1 is deterministic Gauss--Legendre/azimuthal quadrature with no pulsar
-  terms.
-- Figure 2 uses the three pulsar pairs and uncertainties archived in
-  `data/tensor_gr_distance_coherence_paper_pair_markers.csv`. It uses 250,000
-  independent positive-truncated Gaussian distance draws with seed `20260723`.
-- Figures 3 and 4 are deterministic analytical evaluations.
-- Figure 5 uses deterministic angular quadrature at
-  `fL = 4500.9528 / 16.03`.
-- Figures 6 and 7 use exact finite-`fL` autocorrelation expressions and
-  `data/nanograv15_table2_distances.csv`. Their grids and reference values are
-  archived in `data/autocorrelation_finite_distance_plot_cache.npz`.
-- Figure 8 uses a scrambled Sobol angular sample with seed `0`, 25,000 samples,
-  250 separation angles, 120 mass-ratio samples, isotropic `sin(xi) dxi`
-  weighting, `f = 1.97679899027005 nHz`, `L_a = 500 ly`, and
-  `L_b = 10000 ly`.
+## Numerical inputs
+
+- Figure 1 uses the central pulsar distances in
+  `data/tensor_gr_distance_coherence_paper_pair_markers.csv`. This is the only
+  required data file.
+- Figures 3, 6, and 7 use `L_a=500 ly`, `L_b=2000 ly`, and `f=1/(16.03 yr)`.
+- Figure 4 uses `fL=10^4`, with both axes on logarithmic scales.
+- Figure 5 uses `fL=4500.9528/16.03`.
+- Figures 6 and 7 use `A_S=0.5`. Figure 7 has four panels, with `n_S=0,1,2,3`.
+
+All calculations are deterministic; no random seeds are needed. Numerical arrays
+and parameter reports are saved in `data/` when the notebook runs.
